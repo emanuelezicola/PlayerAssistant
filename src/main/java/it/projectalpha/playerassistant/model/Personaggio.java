@@ -10,6 +10,7 @@ public class Personaggio {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nome;
     private Integer vita;
     private Long esperienza;
     private Long oro;
@@ -32,7 +33,8 @@ public class Personaggio {
     public Personaggio() {}
 
 
-    public Personaggio(Integer vita, Long esperienza, Long oro, String sesso, String classe, Utente utente) {
+    public Personaggio(String nome, Integer vita, Long esperienza, Long oro, String sesso, String classe, Utente utente) {
+        this.nome = nome;
         this.vita = vita;
         this.esperienza = esperienza;
         this.oro = oro;
@@ -48,6 +50,14 @@ public class Personaggio {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Integer getVita() {
