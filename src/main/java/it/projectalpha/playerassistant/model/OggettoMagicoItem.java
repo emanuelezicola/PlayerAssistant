@@ -17,6 +17,9 @@ public class OggettoMagicoItem {
     private Personaggio personaggio;
 
 
+    public OggettoMagicoItem() {}
+
+
     public OggettoMagicoItem(String nome, Integer caricheResidue, Personaggio personaggio) {
         this.nome = nome;
         this.caricheResidue = caricheResidue;

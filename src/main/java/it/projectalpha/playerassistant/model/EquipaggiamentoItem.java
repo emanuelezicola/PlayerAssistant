@@ -16,6 +16,8 @@ public class EquipaggiamentoItem {
     @JoinColumn(name = "personaggio_id", nullable = false)
     private Personaggio personaggio;
 
+    public EquipaggiamentoItem() {}
+
     public EquipaggiamentoItem(String nome, Integer quantita, Personaggio personaggio) {
         this.nome = nome;
         this.quantita = quantita;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Player Assistant | Accesso</title>
-    <link rel="icon" href="res/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="<%= request.getContextPath() %>/res/favicon.ico" type="image/x-icon" />
 
     <!-- Bootstrap -->
     <link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
@@ -46,4 +46,4 @@
 <script src="<%= request.getContextPath() %>/js/jquery-3.4.1.min.js" type="javascript"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.min.js" type="javascript"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.bundle.js" type="javascript"></script>
-<script src="<%= request.getContextPath() %>/js/login/login.js" type="text/javascript"></script>
+<!--<script src="<%= request.getContextPath() %>/js/login/login.js" type="text/javascript"></script>-->

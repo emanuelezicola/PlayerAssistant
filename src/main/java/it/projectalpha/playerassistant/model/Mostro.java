@@ -17,6 +17,9 @@ public class Mostro {
     @JoinColumn(name = "personaggio_id", nullable = false)
     private Personaggio personaggio;
 
+
+    public Mostro() {}
+
     public Mostro(String nome, Integer gradoSfida, Integer numeroDiGiocatori, Personaggio personaggio) {
         this.nome = nome;
         this.gradoSfida = gradoSfida;

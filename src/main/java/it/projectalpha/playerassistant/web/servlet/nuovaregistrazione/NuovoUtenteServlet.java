@@ -38,7 +38,6 @@ public class NuovoUtenteServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String nomeUtente = request.getParameter("nome");
         String cognomeUtente = request.getParameter("cognome");
         String email = request.getParameter("email");

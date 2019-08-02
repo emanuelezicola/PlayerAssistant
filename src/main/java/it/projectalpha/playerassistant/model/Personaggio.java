@@ -29,6 +29,8 @@ public class Personaggio {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "personaggio", orphanRemoval = true)
     private List<Mostro> mostriSconfitti = new ArrayList<>();
 
+    public Personaggio() {}
+
 
     public Personaggio(Integer vita, Long esperienza, Long oro, String sesso, String classe, Utente utente) {
         this.vita = vita;
