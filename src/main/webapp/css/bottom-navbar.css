@@ -1,0 +1,30 @@
+.navbar-bottom a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+}
+
+.navbar-bottom {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+}
+
+.navbar-bottom a:hover {
+    background: #f1f1f1;
+    color: black;
+}
+
+.navbar-bottom a.active {
+    background-color: #FF9800;
+    color: white;
+}
+
+.main {
+    padding: 16px;
+    margin-bottom: 30px;
+}
