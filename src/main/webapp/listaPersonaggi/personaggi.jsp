@@ -5,7 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Player Assistant | Home</title>
+    <title>Player Assistant - Personaggi</title>
     <link rel="icon" href="<%= request.getContextPath()%>/res/favicon.ico" type="image/x-icon" />
 
     <!-- Bootstrap -->
@@ -14,7 +14,7 @@
     <link href="<%= request.getContextPath()%>/css/signin.css" rel="stylesheet">
     <link href="<%= request.getContextPath()%>/css/bottom-navbar.css" rel="stylesheet">
 
-    <title>Player Assistant | Personaggi</title>
+
 </head>
 <body>
     <%@ include file="../static-element/navbar.jsp" %>
@@ -28,5 +28,5 @@
 </html>
 
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>

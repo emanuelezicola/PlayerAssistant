@@ -5,7 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Player Assistant | Accesso</title>
+    <title>Player Assistant - Accesso</title>
     <link rel="icon" href="<%= request.getContextPath() %>/res/favicon.ico" type="image/x-icon" />
 
     <!-- Bootstrap -->
