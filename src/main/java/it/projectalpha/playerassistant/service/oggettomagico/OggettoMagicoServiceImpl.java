@@ -3,10 +3,12 @@ package it.projectalpha.playerassistant.service.oggettomagico;
 import it.projectalpha.playerassistant.model.OggettoMagicoItem;
 import it.projectalpha.playerassistant.repository.oggettomagico.OggettoMagicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Component
 public class OggettoMagicoServiceImpl implements OggettoMagicoService {
 
 

@@ -1,12 +1,15 @@
 package it.projectalpha.playerassistant.service.personaggio;
 
 import it.projectalpha.playerassistant.model.Personaggio;
+import it.projectalpha.playerassistant.model.Utente;
 import it.projectalpha.playerassistant.repository.personaggio.PersonaggioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Component
 public class PersonaggioServiceImpl implements PersonaggioService {
 
     @Autowired
@@ -42,5 +45,10 @@ public class PersonaggioServiceImpl implements PersonaggioService {
     public List<Personaggio> findByExample(Personaggio example) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public List<Personaggio> caricaPersonaggi(Utente utente) {
+        return repository.findByUtente(utente);
     }
 }

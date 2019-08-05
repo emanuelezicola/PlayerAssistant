@@ -1,7 +1,9 @@
 package it.projectalpha.playerassistant.web.servlet.login;
 
 
+import it.projectalpha.playerassistant.model.Personaggio;
 import it.projectalpha.playerassistant.model.Utente;
+import it.projectalpha.playerassistant.service.personaggio.PersonaggioService;
 import it.projectalpha.playerassistant.service.utente.UtenteService;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -25,6 +28,8 @@ public class LoginServlet extends HttpServlet {
 
     @Autowired
     private UtenteService utenteService;
+    @Autowired
+    private PersonaggioService personaggioService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -70,6 +75,9 @@ public class LoginServlet extends HttpServlet {
         //metto utente in sessione
         HttpSession session =  request.getSession();
         session.setAttribute("userInfo", utenteCheAccede);
+
+        List<Personaggio> personaggiUtente = personaggioService.caricaPersonaggi((Utente) request.getSession().getAttribute("userInfo"));
+        ((Utente) request.getSession().getAttribute("userInfo")).setPersonaggi(personaggiUtente);
 
         RequestDispatcher rd = request.getRequestDispatcher("listaPersonaggi/personaggi.jsp");
         request.setAttribute("activeLink", "personaggi");

@@ -3,10 +3,12 @@ package it.projectalpha.playerassistant.service.equipaggiamento;
 import it.projectalpha.playerassistant.model.EquipaggiamentoItem;
 import it.projectalpha.playerassistant.repository.equipaggiamentoitem.EquipaggiamentoItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Component
 public class EquipaggiamentoItemServiceImpl implements EquipaggiamentoItemService {
 
     @Autowired

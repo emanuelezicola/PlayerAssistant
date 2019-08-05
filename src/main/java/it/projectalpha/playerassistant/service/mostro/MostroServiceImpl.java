@@ -3,10 +3,12 @@ package it.projectalpha.playerassistant.service.mostro;
 import it.projectalpha.playerassistant.model.Mostro;
 import it.projectalpha.playerassistant.repository.mostro.MostroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Component
 public class MostroServiceImpl implements MostroService {
 
     @Autowired

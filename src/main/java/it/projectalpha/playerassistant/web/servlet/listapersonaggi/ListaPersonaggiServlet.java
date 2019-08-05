@@ -1,5 +1,9 @@
 package it.projectalpha.playerassistant.web.servlet.listapersonaggi;
 
+import it.projectalpha.playerassistant.model.Personaggio;
+import it.projectalpha.playerassistant.model.Utente;
+import it.projectalpha.playerassistant.service.personaggio.PersonaggioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.RequestDispatcher;
@@ -10,11 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/ListaPersonaggiServlet")
 public class ListaPersonaggiServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
+
+    @Autowired
+    PersonaggioService personaggioService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -26,8 +35,14 @@ public class ListaPersonaggiServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        List<Personaggio> personaggiUtente = personaggioService.caricaPersonaggi((Utente) request.getSession().getAttribute("userInfo"));
+
+        ((Utente) request.getSession().getAttribute("userInfo")).setPersonaggi(personaggiUtente);
+
         RequestDispatcher rd = request.getRequestDispatcher("listaPersonaggi/personaggi.jsp");
         request.setAttribute("activeLink", "personaggi");
+        request.setAttribute("listaPersonaggi", personaggiUtente);
         rd.forward(request, response);
     }
 
