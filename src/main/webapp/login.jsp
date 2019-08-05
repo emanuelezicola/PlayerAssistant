@@ -17,12 +17,15 @@
 </head>
 <body>
 <form class="form-signin text-center" action="LoginServlet" method="post" id="loginForm">
+    <div ${pageContext.request.getAttribute("messaggioErrore") == null ? "hidden = \"true\"" : ""} class="alert alert-danger" role="alert" id="alertErrore">
+        <strong>Attenzione!</strong> ${pageContext.request.getAttribute("messaggioErrore")}
+    </div>
     <!--       <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
     <h1 class="h3 mb-3 font-weight-normal">Inserisci le Credenziali per accedere</h1>
 
     <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" name="inputUsername" id="inputUsername" class="form-control dark-control" placeholder="Email" required autofocus>
-    <div hidden class="alert alert-danger" role="alert" id="alertEmail">
+    <input type="text" name="inputUsername" id="inputUsername" class="form-control dark-control" placeholder="Email" required>
+    <div hidden="true" class="alert alert-danger" role="alert" id="alertEmail">
         <strong>Attenzione!</strong> La mail che hai inserito non risulta valida
     </div>
     <br>
@@ -31,7 +34,7 @@
 
 
 
-    <button class="btn btn-lg orange-control btn-block" type="submit">Entra</button>
+    <button class="btn btn-lg orange-control btn-block" type="submit" id="submitButton">Entra</button>
     <div>
         <br>
         <a class="dark-control" href="nuovoUtente.jsp">Se non sei registrato, clicca qui.</a>
@@ -43,7 +46,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<%= request.getContextPath() %>/js/jquery-3.4.1.min.js" type="javascript"></script>
+<script src="<%= request.getContextPath() %>/js/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.min.js" type="javascript"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.bundle.js" type="javascript"></script>
-<!--<script src="<%= request.getContextPath() %>/js/login/login.js" type="text/javascript"></script>-->
+<script src="<%= request.getContextPath() %>/js/userUtility.js" type="text/javascript"></script>
+<script src="<%= request.getContextPath() %>/js/login/login.js" type="text/javascript"></script>

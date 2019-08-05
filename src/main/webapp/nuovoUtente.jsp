@@ -15,6 +15,11 @@
 </head>
 <body>
 <div class="container">
+
+    <div ${pageContext.request.getAttribute("messaggioErrore") == null ? "hidden = \"true\"" : ""} class="alert alert-danger" role="alert" id="alertErrore">
+        <strong>Attenzione!</strong> ${pageContext.request.getAttribute("messaggioErrore")}
+    </div>
+
     <form class="form-horizontal" action='NuovoUtenteServlet' method="POST">
         <fieldset>
             <!--LEGEND-->
@@ -28,6 +33,9 @@
                     <input class="form-control dark-control" type="text" id="nome" name="nome" required>
                 </div>
             </div>
+            <div hidden="true" class="alert alert-danger" role="alert" id="alertNome">
+                <strong>Attenzione!</strong> Il nome che hai inserito non risulta valida
+            </div>
 
             <!--COGNOME-->
             <div class="form-group">
@@ -35,6 +43,9 @@
                 <div class="col-sm-4">
                     <input class="form-control dark-control" type="text" id="cognome" name="cognome" required>
                 </div>
+            </div>
+            <div hidden="true" class="alert alert-danger" role="alert" id="alertCognome">
+                <strong>Attenzione!</strong> Il cognome che hai inserito non risulta valida
             </div>
 
             <!--EMAIL-->
@@ -46,6 +57,10 @@
                 </div>
             </div>
 
+            <div hidden="true" class="alert alert-danger" role="alert" id="alertEmail">
+                <strong>Attenzione!</strong> La mail che hai inserito non risulta valida
+            </div>
+
 
             <!--PASSWORD-->
             <div class="form-group">
@@ -54,6 +69,9 @@
                     <input class="form-control dark-control" type="password" id="password" name="password" required>
                     <p class="help-block">La password deve essere almeno di 4 caratteri</p>
                 </div>
+            </div>
+            <div id="alertPassword" hidden="true" class="alert alert-danger" role="alert">
+                <strong>Attenzione!</strong> La password che hai inserito non risulta valida
             </div>
 
 
@@ -65,11 +83,14 @@
                     <p class="help-block">Per favore, conferma la password</p>
                 </div>
             </div>
+            <div id="alertPasswordRip" hidden="true" class="alert alert-danger" role="alert">
+                <strong>Attenzione!</strong> La password che hai inserito non coincide con la password precedente
+            </div>
 
             <div class="control-group">
                 <!-- Button -->
                 <div class="controls">
-                    <button class="btn orange-control">Registrati</button>
+                    <button class="btn orange-control" id="registratiButton">Registrati</button>
                 </div>
             </div>
         </fieldset>
@@ -78,3 +99,8 @@
 
 </body>
 </html>
+
+
+<script src="<%= request.getContextPath() %>/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="<%= request.getContextPath() %>/js/userUtility.js" type="text/javascript"></script>
+<script src="<%= request.getContextPath() %>/js/nuovoUtente/nuovoUtente.js" type="text/javascript"></script>

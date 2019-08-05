@@ -59,7 +59,14 @@ public class NuovoUtenteServlet extends HttpServlet {
         cognomeUtente = cognomeUtente.substring(0, 1).toUpperCase() + cognomeUtente.substring(1);
 
         Utente utente = new Utente(nomeUtente, cognomeUtente, email, encodedPsw, new Date());
-        utenteService.inserisciNuovo(utente);
+        try {
+            utenteService.inserisciNuovo(utente);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("messaggioErrore", "La mail " + email + " è già collegata ad un altro account");
+            RequestDispatcher rd = request.getRequestDispatcher("nuovoUtente.jsp");
+            rd.forward(request, response);
+        }
 
         response.sendRedirect(request.getContextPath() + "/LoginServlet");
     }

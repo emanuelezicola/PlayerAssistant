@@ -22,9 +22,11 @@
                         Facebook</a>
                 </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="${pageContext.request.contextPath}/LogoutServlet">Log out <span class="sr-only">(current)</span></a>
-            </li>
+            <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text">Utente: ${userInfo.nome} ${userInfo.cognome}
+                    <a href="<%= request.getContextPath()%>/LogoutServlet">Logout</a></p>
+                </li>
+            </ul>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Cerca" aria-label="Cerca">

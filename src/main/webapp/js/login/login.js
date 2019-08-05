@@ -1,20 +1,28 @@
-
 $(document).ready(function () {
 
-    $('#inputUsername').focusout(function () {
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 500;  //time in ms (1 second)
 
-        console.log("HELLO");
-
-        if (!validateEmail($('#inputUsername').value)) {
-            $('#alertEmail').show();
+    $('#inputUsername').keyup(function(){
+        clearTimeout(typingTimer);
+        if ($('#inputUsername').val()) {
+            typingTimer = setTimeout(check, doneTypingInterval);
         }
     });
 
+    $('#inputUsername').focusout(function () {
+        check();
+    });
 
-
-    function validateEmail(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+    function check(){
+        if (!validateEmail($('#inputUsername').val())) {
+            $('#alertEmail').attr("hidden", false);
+            $('#submitButton').attr("disabled", true);
+        } else {
+            $('#alertEmail').attr("hidden", true);
+            $('#submitButton').attr("disabled", false);
+        }
     }
+
 });
 

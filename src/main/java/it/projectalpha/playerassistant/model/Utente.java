@@ -14,6 +14,7 @@ public class Utente {
 	private Long id;
 	private String nome;
 	private String cognome;
+	@Column(unique=true)
 	private String username;
 	private String password;
 	@Temporal(TemporalType.DATE)
