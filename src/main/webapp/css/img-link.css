@@ -1,0 +1,9 @@
+.img-link a:link {
+    color: gray; !important;
+    text-decoration: none;
+}
+
+.img-link a:visited {
+    color: gray; !important;
+    text-decoration: none;
+}

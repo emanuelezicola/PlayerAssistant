@@ -80,6 +80,7 @@ public class LoginServlet extends HttpServlet {
         ((Utente) request.getSession().getAttribute("userInfo")).setPersonaggi(personaggiUtente);
 
         RequestDispatcher rd = request.getRequestDispatcher("listaPersonaggi/personaggi.jsp");
+        request.setAttribute("listaPersonaggi", personaggiUtente);
         request.setAttribute("activeLink", "personaggi");
         rd.forward(request, response);
     }
